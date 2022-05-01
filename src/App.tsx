@@ -1,14 +1,20 @@
 import React from 'react';
-import {Sidebar} from './Sidebar';
-
-import s from './App.module.scss';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import {Feed} from './Feed';
+import {Layout} from './Layout';
+import {Notifications} from './Notifications';
 
 function App() {
   return (
-    <div className={s.root}>
-      <h1>Twitter Clone!</h1>
-      <Sidebar />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Feed />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/notifications" element={<Notifications />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

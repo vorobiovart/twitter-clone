@@ -1,13 +1,26 @@
 .root {
   display: flex;
-  align-items: center;
+  padding: 20px;
   cursor: pointer;
 
-  .icon {
-    display: inline-flex;
-    padding-right: 10px;
+  &:hover {
+    background-color: var(--twitter-background);
+    color: var(--twitter-color);
+    border-radius: 30px;
+    transition: color 0.1s ease-out;
   }
+}
 
-  .text {
-  }
+.icon {
+  display: inline-flex;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 20px;
+}
+
+.active {
+  color: var(--twitter-color);
 }
