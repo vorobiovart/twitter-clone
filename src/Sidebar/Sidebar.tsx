@@ -1,4 +1,5 @@
 import React from 'react';
+import {useLocation} from 'react-router-dom';
 import {
   Twitter,
   Home,
@@ -16,12 +17,19 @@ import {Button} from '@material-ui/core';
 import s from './Sidebar.module.scss';
 
 export const Sidebar = () => {
+  const {pathname} = useLocation();
+
   return (
     <div>
       <Twitter />
-      <SidebarOption navigateTo={'/feed'} active label="Home" Icon={Home} />
+      <SidebarOption active={pathname === '/feed' || pathname === '/'} navigateTo={'/feed'} label="Home" Icon={Home} />
       <SidebarOption navigateTo={'/feed'} label="Explore" Icon={Search} />
-      <SidebarOption navigateTo={'/notifications'} label="Notifications" Icon={NotificationsNone} />
+      <SidebarOption
+        active={pathname === '/notifications'}
+        navigateTo={'/notifications'}
+        label="Notifications"
+        Icon={NotificationsNone}
+      />
       <SidebarOption navigateTo={'/feed'} label="Messages" Icon={Message} />
       <SidebarOption navigateTo={'/feed'} label="Bookmarks" Icon={Bookmarks} />
       <SidebarOption navigateTo={'/feed'} label="Lists" Icon={List} />
