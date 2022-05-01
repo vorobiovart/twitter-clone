@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .icon {
+    display: inline-flex;
+    padding-right: 10px;
+  }
+
+  .text {
+  }
+}

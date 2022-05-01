@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
 import {Sidebar} from './Sidebar';
+
+import s from './App.module.scss';
 
 function App() {
   return (
-    <div className="app">
+    <div className={s.root}>
       <h1>Twitter Clone!</h1>
       <Sidebar />
     </div>
