@@ -1,6 +1,8 @@
 import React from 'react';
-import {Sidebar} from '../Sidebar';
 import {Outlet} from 'react-router-dom';
+import {Sidebar} from '../Sidebar';
+import {Widgets} from '../Widgets';
+
 import s from './Layout.module.scss';
 
 export const Layout = () => {
@@ -8,6 +10,7 @@ export const Layout = () => {
     <div className={s.root}>
       <Sidebar />
       <Outlet />
+      <Widgets />
     </div>
   );
 };

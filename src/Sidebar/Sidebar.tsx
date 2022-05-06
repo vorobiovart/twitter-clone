@@ -20,8 +20,8 @@ export const Sidebar = () => {
   const {pathname} = useLocation();
 
   return (
-    <div>
-      <Twitter />
+    <div className={s.root}>
+      <Twitter className={s.twitterIcon} />
       <SidebarOption active={pathname === '/feed' || pathname === '/'} navigateTo={'/feed'} label="Home" Icon={Home} />
       <SidebarOption navigateTo={'/feed'} label="Explore" Icon={Search} />
       <SidebarOption
