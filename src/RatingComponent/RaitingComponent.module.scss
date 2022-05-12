@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  max-width: 300px;
+}
+
+.star {
+  padding-right: 20px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
