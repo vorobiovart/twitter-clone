@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import classNames from 'classnames';
 import {images} from './images';
 
 import s from './Gallery.module.scss';
@@ -22,15 +21,13 @@ export const Gallery = () => {
   });
 
   return (
-    <div className={s.root}>
-      <div className={s.image}>
-        <img src={index === 0 ? images[length - 1] : images[index - 1]} alt="" />
-      </div>
-      <div className={classNames(s.mainImage, s.image)}>
-        <img src={images[index]} alt="" />
-      </div>
-      <div className={s.image}>
-        <img src={index === length - 1 ? images[0] : images[index + 1]} alt="" />
+    <div className={s.viewPort}>
+      <div className={s.imagesHolder} style={{transform: `translateX(-${index * 20}%)`}}>
+        {images.map((image) => (
+          <div className={s.image}>
+            <img src={image} alt="image" />
+          </div>
+        ))}
       </div>
     </div>
   );
