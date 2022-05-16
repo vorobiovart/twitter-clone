@@ -88,3 +88,79 @@ console.log(
     {productName: 'grapes', amountToBuy: 3, price: 10, discount: 0.2, discountStartsAfterItemsPurchased: 2},
   ),
 );
+
+// parenth
+
+var isValid = function (s) {
+  const openParenthStack = [];
+
+  const openCloseMap = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+  };
+
+  let isValid = true;
+
+  for (let i = 0; i < s.length; i++) {
+    if (i === 0 && !openCloseMap[s[i]]) {
+      isValid = false;
+      break;
+    }
+
+    if (openCloseMap[s[i]]) {
+      openParenthStack.push(s[i]);
+    } else {
+      const openParen = openParenthStack.pop();
+      if (openCloseMap[openParen] !== s[i]) {
+        isValid = false;
+        break;
+      }
+    }
+  }
+
+  if (openParenthStack.length !== 0) return false;
+
+  console.log(openParenthStack);
+
+  return isValid;
+};
+
+isValid('{()}');
+
+const removeDuplicates = function (nums) {
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (nums[i] === nums[i - 1]) {
+      nums.splice(i, 1);
+    }
+  }
+
+  return nums;
+};
+
+console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]));
+
+// substring
+const longestUniqueSubstring = (string) => {
+  let start = 0;
+  let end = 0;
+  const subSet = new Set();
+  let longestSubstr = '';
+
+  while (end < string.length) {
+    if (!subSet.has(string[end])) {
+      subSet.add(string[end]);
+      if (longestSubstr.length < subSet.size) {
+        longestSubstr = Array.from(subSet).join('');
+      }
+      end += 1;
+    } else {
+      subSet.delete(string[start]);
+      start += 1;
+    }
+  }
+
+  return longestSubstr;
+};
+
+longestUniqueSubstring('aaaa');
